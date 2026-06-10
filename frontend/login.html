@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Capital Compass AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+}
+
+/* Card Container */
+.card{
+background:#1e293b;
+padding:45px;
+width:380px;
+border-radius:14px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+text-align:center;
+}
+
+/* Title */
+h2{
+font-family:'Orbitron',sans-serif;
+margin-bottom:30px;
+font-size:24px;
+letter-spacing:1px;
+color:#3b82f6;
+}
+
+/* Inputs */
+input{
+width:100%;
+padding:12px;
+margin-bottom:18px;
+border:none;
+border-radius:8px;
+background:#111827;
+color:white;
+font-size:14px;
+outline:none;
+border:1px solid #2d3748;
+transition:0.3s;
+}
+
+input:focus{
+border-color:#3b82f6;
+box-shadow:0 0 8px rgba(59,130,246,0.4);
+}
+
+/* Button */
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#3b82f6;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#2563eb;
+}
+
+/* Message Box */
+#message{
+margin-top:18px;
+font-size:14px;
+min-height:20px;
+}
+
+/* Success */
+.success{
+color:#22c55e;
+}
+
+/* Error */
+.error{
+color:#ef4444;
+}
+
+p{
+margin-top:20px;
+font-size:14px;
+}
+
+a{
+color:#10b981;
+text-decoration:none;
+font-weight:500;
+}
+
+a:hover{
+text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="message"></div>
+
+<p>New user? <a href="register.html">Register</a></p>
+</div>
+
+<script>
+async function login(){
+
+const res=await fetch("/api/login",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+username:username.value,
+password:password.value
+})
+});
+
+const data=await res.json();
+const messageBox=document.getElementById("message");
+
+if(!res.ok){
+messageBox.className="error";
+messageBox.innerText=data.message;
+return;
+}
+
+messageBox.className="success";
+messageBox.innerText="Login successful! Redirecting...";
+
+setTimeout(()=>{
+location.href="dashboard.html";
+},1000);
+}
+</script>
+
+</body>
+</html>

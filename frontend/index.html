@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Compass AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+min-height:100vh;
+background:linear-gradient(180deg,#0b0f19 0%, #111827 100%);
+color:#e2e8f0;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:60px 20px;
+overflow-x:hidden;   /* allow vertical scroll */
+}
+
+/* HEADER */
+.header{
+text-align:center;
+margin-bottom:70px;
+animation:fadeIn 1.2s ease forwards;
+}
+
+/* RECTANGLE LOGO */
+.logo-container{
+position:relative;
+width:460px;
+height:260px;
+margin:0 auto 50px auto;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:20px;
+overflow:hidden;
+background:#0f172a;
+border:1px solid rgba(255,255,255,0.05);
+box-shadow:
+0 0 40px rgba(0,0,0,0.6),
+0 0 80px rgba(59,130,246,0.15);
+animation:float 4s ease-in-out infinite;
+}
+
+/* Subtle animated border */
+.logo-container::before{
+content:'';
+position:absolute;
+inset:-2px;
+border-radius:22px;
+background:linear-gradient(45deg,#1e3a8a,#2563eb,#1e40af);
+background-size:300% 300%;
+animation:borderFlow 10s linear infinite;
+z-index:-1;
+filter:blur(6px);
+opacity:0.6;
+}
+
+.logo-container img{
+width:85%;
+height:auto;
+object-fit:contain;
+filter:
+drop-shadow(0 0 25px rgba(59,130,246,0.5));
+transition:transform 0.4s ease;
+}
+
+.logo-container:hover img{
+transform:scale(1.05);
+}
+
+/* TITLE */
+.header h1{
+font-size:42px;
+font-weight:700;
+margin-bottom:10px;
+background:linear-gradient(135deg,#ffffff,#93c5fd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.header p{
+font-size:15px;
+color:#9ca3af;
+}
+
+/* CARD */
+.container{
+background:#111827;
+padding:55px 45px;
+border-radius:18px;
+width:100%;
+max-width:460px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.06);
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+transition:all 0.3s ease;
+animation:fadeInUp 1.3s ease forwards;
+margin-bottom:80px;  /* space for scroll */
+}
+
+.container:hover{
+transform:translateY(-5px);
+}
+
+.container h2{
+font-size:20px;
+font-weight:600;
+margin-bottom:12px;
+color:#ffffff;
+letter-spacing:1px;
+}
+
+.container p{
+font-size:14px;
+color:#9ca3af;
+margin-bottom:35px;
+line-height:1.7;
+}
+
+/* BUTTON */
+button{
+padding:16px 36px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+font-size:15px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+transition:all 0.25s ease;
+min-width:200px;
+box-shadow:0 10px 25px rgba(37,99,235,0.3);
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 20px 45px rgba(37,99,235,0.5);
+}
+
+/* FOOTER */
+.footer{
+font-size:12px;
+color:#6b7280;
+text-align:center;
+margin-top:auto;
+padding-bottom:30px;
+}
+
+/* ANIMATIONS */
+@keyframes borderFlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(-20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeInUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.logo-container{
+width:95%;
+height:220px;
+}
+.header h1{
+font-size:32px;
+}
+.container{
+padding:40px 25px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="logo-container">
+<img src="/static/finlogo.jpeg" alt="Capital Compass AI Logo">
+</div>
+
+<h1>Capital Compass AI</h1>
+<p>Multi-Agent Investment Intelligence Platform</p>
+
+</div>
+
+<div class="container">
+<h2>ACCESS DASHBOARD</h2>
+<p>Your AI-powered portfolio strategist is ready to optimize, validate, and simulate your investment strategy.</p>
+
+<button onclick="location.href='/login.html'">
+Login to Continue
+</button>
+</div>
+
+<div class="footer">
+© 2026 Capital Compass AI — Intelligent Portfolio Systems
+</div>
+
+</body>
+</html>

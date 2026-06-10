@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio Advisor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #020617 0%, #000 100%);
+    display: flex;
+    color: white;
+}
+
+/* Animated Light Streak Background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0,255,255,0.05),
+        rgba(0,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 40px
+    );
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(-200px); }
+}
+
+/* Left Panel */
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 64px;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #00f5ff, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 15px #00f5ff; }
+    to { text-shadow: 0 0 40px #3b82f6; }
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #94a3b8;
+    max-width: 500px;
+}
+
+/* Right Panel Glass */
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.card {
+    width: 420px;
+    padding: 60px;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 60px rgba(0,255,255,0.3);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 100px rgba(0,255,255,0.6);
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 14px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.login-btn {
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    box-shadow: 0 0 30px #3b82f6;
+}
+
+.register-btn {
+    background: linear-gradient(90deg, #10b981, #22c55e);
+    color: white;
+    box-shadow: 0 0 30px #10b981;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 60px white;
+}
+
+/* Animated Neural Core */
+.neural {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,255,0.2), transparent);
+    animation: pulse 4s infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.9); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(0.9); }
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="neural"></div>
+
+<div class="left">
+    <h1>AI PORTFOLIO</h1>
+    <h1>ADVISOR</h1>
+    <div class="subtitle">
+        Autonomous Risk Intelligence. Smart Allocation Engine.
+        Built for the future of financial decision-making.
+    </div>
+</div>
+
+<div class="right">
+    <div class="card">
+        <button class="btn login-btn" onclick="goToLogin()">LOGIN</button>
+        <button class="btn register-btn" onclick="goToRegister()">REGISTER</button>
+    </div>
+</div>
+
+<footer>
+    © 2026 AI Financial Systems | Hackathon Edition 🚀
+</footer>
+
+<script>
+function goToLogin() {
+    window.location.href = "/login";
+}
+
+function goToRegister() {
+    window.location.href = "/register";
+}
+</script>
+
+</body>
+</html>
