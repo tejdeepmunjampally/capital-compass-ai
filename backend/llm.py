@@ -1,4 +1,3 @@
-import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 llm = ChatGoogleGenerativeAI(
@@ -10,4 +9,3 @@ llm = ChatGoogleGenerativeAI(
 def generate_response(prompt):
     response = llm.invoke(prompt)
     return response.content
-generate_response(prompt)
