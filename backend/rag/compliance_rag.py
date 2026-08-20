@@ -1,11 +1,12 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_ollama import OllamaEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DOC_PATH = os.path.join(BASE_DIR, "compliance_docs", "investment_guidelines.txt")
+
 
 def build_compliance_rag():
 
@@ -19,8 +20,9 @@ def build_compliance_rag():
 
     docs = splitter.split_documents(documents)
 
-    # ✅ Correct embedding model
-    embeddings = OllamaEmbeddings(model="nomic-embed-text")
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001"
+    )
 
     vectordb = Chroma.from_documents(
         docs,
